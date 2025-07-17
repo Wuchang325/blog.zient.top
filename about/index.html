@@ -43,10 +43,8 @@
 
 
 
-<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
 
+<script src="https://s4.zstatic.net/ajax/libs/twikoo/1.6.31/twikoo.all.min.js"></script>
 
 
 
@@ -209,7 +207,7 @@
 <li>动漫 ： 爱看一些动漫，比如《魔女之旅》(看博客整体样式也能看出来，屑魔女) <del>如果你有推荐可以给我说欧</del></li>
 </ul>
 <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul>
-<li>邮箱 ： <a href="mailto:&#107;&#x78;&#120;&#x70;&#103;&#54;&#x36;&#x36;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;"><code>kxxpg666@qq.com</code></a></li>
+<li>邮箱 ： <a href="mailto:&#107;&#x78;&#120;&#112;&#103;&#x36;&#x36;&#54;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;"><code>kxxpg666@qq.com</code></a></li>
 <li>QQ ： <a target="_blank" rel="noopener" href="https://wpa.qq.com/msgrd?v=3&uin=1805875318&site=qq&menu=yes"><code>1805875318</code></a></li>
 <li>bilibili ： <a target="_blank" rel="noopener" href="https://space.bilibili.com/1240890679"><code>1240890679</code></a></li>
 </ul>
@@ -275,25 +273,16 @@
     
 
 
-<script>
-    Waline.init({
-        el: "#waline-container",
-        serverURL: "https://ds3y2efv.api.lncldglobal.com",
-        commentCount: true,
-        pageview: false,
-        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
-        meta: "nick,mail,link".split(","),
-        requiredMeta: "nick".split(","),
-        lang: "zh-CN",
-        wordLimit: 1000,
-        pageSize: "10",
-        login: "enable",
-        
-        locale: "zh-CN",
-        
-    });
-</script>
 
+<script>
+    twikoo.init({
+        el: "#twikoo-container",
+        envId: "https://coruscating-gnome-1a9f12.netlify.app/.netlify/functions/twikoo",
+        region: "",
+        path: location.pathname,
+        lang: "zh-CN",
+    })
+</script>
 
 
     

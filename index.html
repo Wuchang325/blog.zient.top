@@ -195,6 +195,107 @@
         
 
 <div class="post">
+    <a href="/2025/07/17/%E8%A3%85%E6%9C%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0-%E4%B8%80/">
+        <h2 class="post-title">装机问题小记 一</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                问题解决
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/7/17
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近，朋友购买了电脑配件，在装机过程中碰到了一些问题:<br>使用<code>winpe</code>安装<code>Win11 24H2专业版</code>后开机重启，提示：</p>
+<blockquote>
+<p>windows 安装程序无法将 windows 配置为在此计算机的硬件上运行 &#x2F; Windows无法完成安装。若要在此计算机上安装 Windows，请重新启动安装<br>然后多次重新安装后无果，从网上搜集到一些解决办法，尝试后成功。</p>
+</blockquote>
+<p><img src="/images/blog/2025/07/17/image1.png" alt="img"><br><img src="/images/blog/2025/07/17/image2.png" alt="img"></p>
+<p>我首先是怀疑是不是因为硬盘分区类型问题，修改后仍无法安装</p>
+<p>此机器部分配置如下：</p>
+<ul>
+<li>CPU：AMD Ryzen 5 5600</li>
+<li>内存：16GB DDR4</li>
+<li>主板: 华硕A520M-K</li>
+</ul>
+<p>解决方法原地址链接：<a target="_blank" rel="noopener" href="https://b23.tv/8S5bFmh">bilibili</a> (这个链接应该是失效了，方法是在评论区找到的)<br>此方式是由B站热心网友<code>@南国椰子鸡</code>提供，在此非常感谢<br><img src="/images/blog/2025/07/17/image.png" alt="img"></p>
+<p>修复方法就是在报错界面通过修改注册表，强行<code>跳过</code>初始化安装步骤</p>
+<h2 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h2><h3 id="一-新建用户"><a href="#一-新建用户" class="headerlink" title="一.新建用户"></a>一.新建用户</h3><ol>
+<li>首先新建一个拥有管理权限的账户，在<code>报错界面</code>(如图1)按住键盘上的<code>shift</code>+<code>F10</code>键打开cmd窗口，<br>然后输入以下命令(请将<code>用户名</code>替换为自己的想要的用户名)</li>
+</ol>
+<pre><code class="language-cmd">net user 用户名 /add
+ 
+net user 用户名 /active
+ 
+net localgroup administrators 用户名 /add
+</code></pre>
+<ol start="2">
+<li>然后在cmd中输入以下命令打开注册表</li>
+</ol>
+<pre><code class="language-cmd">regedit
+</code></pre>
+<blockquote>
+<p>因为是因为在系统加载界面报错，所有有可能鼠标指针无法显示，可通过键盘上的<code>TAB</code>键切换目录框，然后通过<code>方向键</code>切换选项，<code>回车</code>确定</p>
+</blockquote>
+<ol start="3">
+<li>然后定位到<code>HKEY_LOCAL_MACHINE/SYSTEM/setup</code>文件夹下</li>
+<li>将所有数据表全部修改为<code>0</code>，不管什么类型<br><img src="/images/blog/2025/07/17/image3.png" alt="img"></li>
+<li>修改完后执行以下命令重启应用更改</li>
+</ol>
+<pre><code class="language-cmd">shutdown -r -t 0
+</code></pre>
+<p>重启后系统成功安装启动</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol>
+<li><p>启动后黑屏:</p>
+<blockquote>
+<p>按住键盘上的<code>Ctrl</code>+<code>Alt</code>+<code>Del</code>键选择登出，然后重新登录账户。(重启应该也行)</p>
+</blockquote>
+</li>
+<li><p>开机后无法关机</p>
+<blockquote>
+<p>在bios中将快速启动关闭，保存退出重启即可</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>本文部分图片转载至<a target="_blank" rel="noopener" href="https://blog.csdn.net/Kr_Krypton/article/details/136475562">CSDN</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E8%A3%85%E6%9C%BA/" style="color: #00bcd4">装机</a>
+        </span>
+        
+    </div>
+    <a href="/2025/07/17/%E8%A3%85%E6%9C%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0-%E4%B8%80/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2025/07/15/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%96%B0%E5%8D%9A%E5%AE%A2/">
         <h2 class="post-title">你好，新博客</h2>
     </a>
@@ -227,7 +328,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%96%B0%E4%BA%8B%E7%89%A9/" style="color: #ff7d73">新事物</a>
+            <a href="/tags/%E6%96%B0%E4%BA%8B%E7%89%A9/" style="color: #ffa2c4">新事物</a>
         </span>
         
     </div>
